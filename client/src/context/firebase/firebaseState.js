@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import firebase from "../../../firebase";
+import firebase from "../../../firebaseIgnore";
 import FirebaseReducer from "./firebaseReducer";
 import FirebaseContext from "./firebaseContext";
 import { OBTENER_PRODUCTOS } from "../../types";
