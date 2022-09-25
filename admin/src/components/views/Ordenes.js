@@ -4,6 +4,8 @@ const Ordenes = () => {
 
   const { firebase } =  useContext(FirebaseContext);
 
+  const [ordenes, setOrdenes] = useState([]);
+
   useEffect(() => {
     const obtenerOrdenes = () =>{
       firebase.db.collection('ordenes').where('completado', '==', false).onSnapshot(manejarSnapshot)
@@ -17,7 +19,8 @@ const Ordenes = () => {
         id: doc.id,
         ...doc.data()
       }
-    })
+    });
+    setOrdenes(ordenes)
   }
   return (
     <>
