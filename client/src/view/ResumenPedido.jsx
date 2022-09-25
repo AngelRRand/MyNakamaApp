@@ -9,7 +9,7 @@ import firebase from '../../firebaseIgnore'
 
 
 const ResumenPedido = () => {
-  const { pedido, total, enseñarResumen, pedidoRealizado } = useContext(PedidosbaseContext)
+  const { pedido, total, enseñarResumen, pedidoRealizado, eliminarPedido } = useContext(PedidosbaseContext)
 
   const navigation = useNavigation()
   useEffect(() => {
@@ -64,6 +64,7 @@ const ResumenPedido = () => {
   const confirmarEliminar = (nombre, id) => {
     Alert.alert(
       `¿Deseas Eliminar ${nombre} de su lista?`,
+      'Revise bien si todo es correcto.',
       [
         {
           text: 'Confirmar',
