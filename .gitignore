@@ -1,3 +1,4 @@
 client/firebaseIgnore/index.js
 client/firebaseIgnore/firebase.js
 client/firebaseIgnore/a.js
+admin/src/firebaseData/configIgnore.js
