@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 import PedidosbaseContext from '../context/pedidos/pedidosContext';
 import stylesGlobal from '../styles/stylesGlobal.jsx';
 import CardPedidos from '../component/CardPedidos';
-import firebase from '../../firebase'
+import firebase from '../../firebaseIgnore'
 
 
 const ResumenPedido = () => {
