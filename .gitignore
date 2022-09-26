@@ -2,3 +2,6 @@ client/firebaseIgnore/index.js
 client/firebaseIgnore/firebase.js
 client/firebaseIgnore/a.js
 admin/src/firebaseData/configIgnore.js
+admin/src/components/pages/Menu.js
+admin/src/components/pages/NuevoPlato.js
+admin/src/components/pages/Ordenes.js
