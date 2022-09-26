@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import {FirebaseContext} from '../../firebaseData';
+import Orden from '../ui/Orden';
 const Ordenes = () => {
 
   const { firebase } =  useContext(FirebaseContext);
@@ -26,6 +27,12 @@ const Ordenes = () => {
   return (
     <>
         <h1 className='text-3xl font-light text-white'>Ordenes</h1>
+        {
+          ordenes.map(orden =>{
+            
+          })
+          
+        }
     </>
   )
 }
