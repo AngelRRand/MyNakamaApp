@@ -1,6 +1,6 @@
-import Ordenes from "./components/views/Ordenes"
-import Menu from "./components/views/Menu"
-import NuevoPlato from "./components/views/NuevoPlato"
+import Ordenes from "./components/pages/Ordenes"
+import Menu from "./components/pages/Menu"
+import NuevoPlato from "./components/pages/NuevoPlato"
 import Sidebar from "./components/ui/Sidebar"
 
 
