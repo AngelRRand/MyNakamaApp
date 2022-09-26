@@ -23,7 +23,7 @@ const Orden = ({orden}) => {
                     />
                     <button
                         type='submit'
-                        className='mb-1 p-2 mt-3 text-white uppercase font-bold bg-pink-700 hover:bg-pink-900 inline-block'
+                        className='p-2 mt-3 w-full text-white uppercase font-bold bg-pink-700 hover:bg-pink-900 inline-block'
                     >
                         Definir Tiempo
                     </button>
