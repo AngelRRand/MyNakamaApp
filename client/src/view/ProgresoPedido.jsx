@@ -4,9 +4,19 @@ import stylesGlobal from '../styles/stylesGlobal.jsx';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native'
 import PedidosbaseContext from '../context/pedidos/pedidosContext';
+import firebase from '../firebase'
 const ProgresoPedido = () => {
   
   const { idpedido } = useContext(PedidosbaseContext)
+  const [tiempo, setTiempo] = useState(0);
+  useEffect(() => {
+    const obtenerProductos = () =>{
+      firebase.db.collection('ordenes').doc(idpedido).onSnapshot(function(doc){
+        setTiempo(doc.data().tiempoentrega)
+      })
+    }
+    obtenerProductos()
+  }, []);
 
   return (
 
