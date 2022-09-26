@@ -22,6 +22,7 @@ const Ordenes = () => {
     });
     setOrdenes(ordenes)
   }
+  console.log(ordenes)
   return (
     <>
         <h1 className='text-3xl font-light text-white'>Ordenes</h1>
