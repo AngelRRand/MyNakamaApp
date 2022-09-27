@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react'
 import stylesGlobal from '../styles/stylesGlobal.jsx';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -8,7 +8,7 @@ import firebase from '../firebase'
 import Countdown from 'react-countdown'
 
 const ProgresoPedido = () => {
-
+  const navigation = useNavigation()
   const { idpedido } = useContext(PedidosbaseContext)
   const [tiempo, setTiempo] = useState(0);
   const [completado, setCompletado] = useState(false);
@@ -22,8 +22,8 @@ const ProgresoPedido = () => {
     obtenerProductos()
   }, []);
 
-  const renderer = ({minutes, seconds}) =>{
-    return(
+  const renderer = ({ minutes, seconds }) => {
+    return (
       <Text style={styles.tiempo}>{minutes}:{seconds}</Text>
     )
   }
@@ -55,7 +55,11 @@ const ProgresoPedido = () => {
         {completado && (
           <>
             <Text style={styles.textComplet}>Orden Lista</Text>
-            <Text style={[styles.textComplet, {fontSize:20}]}>Porfavor retire su pedido</Text>
+            <Text style={[styles.textComplet, { fontSize: 20 }]}>Porfavor retire su pedido</Text>
+
+            <TouchableOpacity style={[stylesGlobal.btn, { backgroundColor: '#fcdc75', width: '100%', marginVertical: 20 }]} onPress={() => navigation.navigate('nuevaOrden')}>
+              <Text style={[styles.text, { color: 'black' }]}>Ordenar Pedido</Text>
+            </TouchableOpacity>
           </>
         )}
       </View>
@@ -78,22 +82,22 @@ const styles = StyleSheet.create({
     letterSpacing: 2
   },
 
-  tiempo:{
+  tiempo: {
     color: '#fcdc75',
-    marginBottom:20,
-    fontSize:60,
-    textAlign:'center',
-    marginTop:30
+    marginBottom: 20,
+    fontSize: 60,
+    textAlign: 'center',
+    marginTop: 30
   },
 
-  textComplet:{
+  textComplet: {
     color: '#75fc87',
-    marginBottom:20,
-    fontSize:30,
+    marginBottom: 20,
+    fontSize: 30,
     fontWeight: 'bold',
   },
 
-  
+
 });
 
 export default ProgresoPedido
