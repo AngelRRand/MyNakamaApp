@@ -22,7 +22,7 @@ const ProgresoPedido = () => {
 
   const renderer = ({minutes, seconds}) =>{
     return(
-      <Text>{minutes}:{seconds}</Text>
+      <Text style={styles.tiempo}>{minutes}:{seconds}</Text>
     )
   }
 
@@ -69,6 +69,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 2
   },
+
+  tiempo:{
+    color: '#fcdc75',
+    marginBottom:20,
+    fontSize:60,
+    textAlign:'center',
+    marginTop:30
+  }
 });
 
 export default ProgresoPedido
