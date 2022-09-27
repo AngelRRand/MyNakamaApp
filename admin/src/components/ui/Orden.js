@@ -31,7 +31,7 @@ const Orden = ({ orden }) => {
                             type='number'
                             className='shadow apparence-none border rounded w-full py-2 px-3 text-pink-600 leading-tight focus:outline-none focus:shadow-outline bg-slate-900'
                             min='1'
-                            max='20'
+                            max='120'
                             placeholder='20'
                             value={tiempo}
                             onChange={e => setTiempo(parseInt(e.target.value))}
