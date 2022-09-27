@@ -5,6 +5,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native'
 import PedidosbaseContext from '../context/pedidos/pedidosContext';
 import firebase from '../firebase'
+import Countdown from 'react-countdown'
+
 const ProgresoPedido = () => {
 
   const { idpedido } = useContext(PedidosbaseContext)
@@ -33,7 +35,12 @@ const ProgresoPedido = () => {
         )}
         {tiempo > 0 && (
           <>
-            <Text style={styles.text}>Su orden estara lista en : {tiempo} minutos</Text>
+            <Text style={styles.text}>Su orden estara lista en: </Text>
+            <Text>
+              <Countdown
+                date={Date.now() + tiempo * 60000}
+              />
+            </Text>
           </>
         )}
       </View>
