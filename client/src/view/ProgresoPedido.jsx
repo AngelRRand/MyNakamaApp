@@ -1,17 +1,17 @@
 import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
-import React, {useContext, useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import stylesGlobal from '../styles/stylesGlobal.jsx';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native'
 import PedidosbaseContext from '../context/pedidos/pedidosContext';
 import firebase from '../firebase'
 const ProgresoPedido = () => {
-  
+
   const { idpedido } = useContext(PedidosbaseContext)
   const [tiempo, setTiempo] = useState(0);
   useEffect(() => {
-    const obtenerProductos = () =>{
-      firebase.db.collection('ordenes').doc(idpedido).onSnapshot(function(doc){
+    const obtenerProductos = () => {
+      firebase.db.collection('ordenes').doc(idpedido).onSnapshot(function (doc) {
         setTiempo(doc.data().tiempoentrega)
       })
     }
@@ -25,7 +25,17 @@ const ProgresoPedido = () => {
       style={stylesGlobal.container}>
 
       <View style={stylesGlobal.contenido}>
-        <Text style={styles.text}>{idpedido}</Text>
+        {tiempo === 0 && (
+          <>
+            <Text style={styles.text}>Hemos recibido tu orden{idpedido}</Text>
+            <Text style={styles.text}>Estamos calculando el tiempo de entrega</Text>
+          </>
+        )}
+        {tiempo > 0 && (
+          <>
+            <Text style={styles.text}>Su orden estara lista en : {tiempo} minutos</Text>
+          </>
+        )}
       </View>
 
     </LinearGradient>
