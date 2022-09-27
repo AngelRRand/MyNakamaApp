@@ -11,10 +11,12 @@ const ProgresoPedido = () => {
 
   const { idpedido } = useContext(PedidosbaseContext)
   const [tiempo, setTiempo] = useState(0);
+  const [completado, setCompletado] = useState(false);
   useEffect(() => {
     const obtenerProductos = () => {
       firebase.db.collection('ordenes').doc(idpedido).onSnapshot(function (doc) {
         setTiempo(doc.data().tiempoentrega)
+        setCompletado(doc.data().completado)
       })
     }
     obtenerProductos()
@@ -39,7 +41,7 @@ const ProgresoPedido = () => {
             <Text style={styles.text}>Estamos calculando el tiempo de entrega</Text>
           </>
         )}
-        {tiempo > 0 && (
+        {!completado && tiempo > 0 && (
           <>
             <Text style={styles.text}>Su orden estara lista en: </Text>
             <Text>
@@ -48,6 +50,12 @@ const ProgresoPedido = () => {
                 renderer={renderer}
               />
             </Text>
+          </>
+        )}
+        {completado && (
+          <>
+            <Text style={styles.textComplet}>Orden Lista</Text>
+            <Text style={[styles.textComplet, {fontSize:20}]}>Porfavor retire su pedido</Text>
           </>
         )}
       </View>
@@ -76,7 +84,16 @@ const styles = StyleSheet.create({
     fontSize:60,
     textAlign:'center',
     marginTop:30
-  }
+  },
+
+  textComplet:{
+    color: '#75fc87',
+    marginBottom:20,
+    fontSize:30,
+    fontWeight: 'bold',
+  },
+
+  
 });
 
 export default ProgresoPedido

@@ -3,6 +3,7 @@ import { FirebaseContext } from '../../firebaseData'
 const Orden = ({ orden }) => {
 
     const [tiempo, setTiempo] = useState(0);
+    
 
     const { firebase } = useContext(FirebaseContext)
 
@@ -62,7 +63,7 @@ const Orden = ({ orden }) => {
                 ) 
                 }
                 {
-                    !orden.completado && (
+                    !orden.completado && orden.tiempoentrega > 0 &&(
                         <button
                             type='button'
                             className='p-2 mt-3 w-full text-white uppercase font-bold bg-pink-700 hover:bg-pink-900 inline-block'
