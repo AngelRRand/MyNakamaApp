@@ -20,6 +20,12 @@ const ProgresoPedido = () => {
     obtenerProductos()
   }, []);
 
+  const renderer = ({minutes, seconds}) =>{
+    return(
+      <Text>{minutes}:{seconds}</Text>
+    )
+  }
+
   return (
 
     <LinearGradient
@@ -39,6 +45,7 @@ const ProgresoPedido = () => {
             <Text>
               <Countdown
                 date={Date.now() + tiempo * 60000}
+                renderer={renderer}
               />
             </Text>
           </>
